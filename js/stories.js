@@ -53,21 +53,27 @@ function generateStoryMarkup(story) {
     `);
 }
 function createFavsDom() {
-  let favy = currentUser.favorites.story
+  let favy = currentUser.favorites;
+  let newDiv =$("<div>");
 
-  return `<li id="${favy.storyId}">
-  <a href="${favy.url}" target="a_blank" class="story-link">
-    ${favy.title}
-  </a>
-  <small class="story-author">by ${favy.author}</small>
-  <small class="story-user">posted by ${favy.username}</small>
-</li>`
+  for (let fav of favy) {
+    newDiv.append(`<li id="${fav.storyId}">
+    <a href="${fav.url}" target="a_blank" class="story-link">
+      ${fav.title}
+    </a>
+    <small class="story-author">by ${fav.author}</small>
+    <small class="story-user">posted by ${fav.username}</small>
+    </li>`)
+  }
+
+  return newDiv; 
 }
+
 $("body").on("click", "i", function (evt) {
   $(evt.target).toggleClass("far fas"); 
   $("#fav-cont").append(createFavsDom()) 
-  
 })
+
 let count = 0
 $(".favs").on("click", function(evt) {
   $("#fav-cont").toggle()
