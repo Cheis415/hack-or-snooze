@@ -52,14 +52,38 @@ function generateStoryMarkup(story) {
       </li>
     `);
 }
+function createFavsDom() {
+  let favy = currentUser.favorites.story
 
+  return `<li id="${favy.storyId}">
+  <a href="${favy.url}" target="a_blank" class="story-link">
+    ${favy.title}
+  </a>
+  <small class="story-author">by ${favy.author}</small>
+  <small class="story-user">posted by ${favy.username}</small>
+</li>`
+}
 $("body").on("click", "i", function (evt) {
-  let targetId = $(evt.target).parent().attr("id");
-  $(evt.target).toggleClass("far fas");  
-  currentUser.favorites.unshift(targetId);
-  currentUser.addFavorite(targetId);
+  $(evt.target).toggleClass("far fas"); 
+  $("#fav-cont").append(createFavsDom()) 
+  
 })
-
+let count = 0
+$(".favs").on("click", function(evt) {
+  $("#fav-cont").toggle()
+  count++
+  if (count % 2 === 1) {
+    hidePageComponents();
+  } else {
+    putStoriesOnPage();
+  }
+  
+  
+  
+  
+  // $("#all-stories-list").append()
+  // console.log("currrfaaav",currentUser.favorites);
+})
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
 function putStoriesOnPage() {

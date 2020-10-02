@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="css/nav.css">
 </head>
 
-<body>
+<body class="bod">
 
 <!-- top navigation bar -->
 <nav>
@@ -38,6 +38,7 @@
     <a class="nav-link" href="#" id="nav-all">Hack or Snooze</a>
   </div>
     <a class="nav-link" href="#" id="nav-story">submit</a>
+    <a class="favs" href="#" id="favorites">favorites</a>
   <div class="nav-right">
     <a class="nav-link" href="#" id="nav-login">login/signup</a>
     <a class="nav-link" href="#" id="nav-user-profile"></a>
@@ -56,7 +57,7 @@
 
 <!-- area for stories (all stories, user stories, favorites) -->
 <section class="stories-container container">
-
+  <ol id="fav-cont"></ol>
   <!-- loading message (removed by JS after stories loaded) -->
   <div id="stories-loading-msg">Loading&hellip;</div>
 

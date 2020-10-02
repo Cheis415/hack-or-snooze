@@ -1,8 +1,10 @@
 /* Navigation bar */
-
+.bod {
+  background-color: blanchedalmond;
+}
 nav {
   display: flex;
-  background-color: #ff6600;
+  background-color: aqua;
   align-items: center;
   padding: 5px 20px;
   border-radius: 3px 3px 0 0;
@@ -26,4 +28,8 @@ nav {
 }
 #nav-story {
   display: none;
+}
+.favs {
+  font-size: 12px;
+  /* display: none; */
 }

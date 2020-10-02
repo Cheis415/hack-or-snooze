@@ -1,11 +1,13 @@
 /* Lists of stories */
-
+#fav-cont {
+  display: none;
+}
 .stories-list {
   margin: 20px 5px;
 }
 
 .stories-list > li {
-  color: gray;
+  color: salmon;
   font-size: 0.8rem;
   margin: 10px 0;
 }
@@ -20,7 +22,7 @@
 /* Individual stories */
 
 .story-link {
-  color: black;
+  color: hotpink;
   font-size: 0.85rem;
   font-weight: normal;
   margin: 18px 0;
