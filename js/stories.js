@@ -32,11 +32,17 @@ async function addStory(evt) {
 
 function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
+  let classy = `far fa-thumbs-up`;
 
+  if (currentUser.favorites.includes(story.storyID)) {
+    classy = "fas fa-thumbs-up";
+  }
+  
   const hostName = story.getHostName();
+
   return $(`
       <li id="${story.storyId}">
-      <i class="far fa-thumbs-up" class="fas fa-thumbs-up"></i>
+        <i class="${classy}"></i>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -46,6 +52,13 @@ function generateStoryMarkup(story) {
       </li>
     `);
 }
+
+$("body").on("click", "i", function (evt) {
+  let targetId = $(evt.target).parent().attr("id");
+  $(evt.target).toggleClass("far fas");  
+  currentUser.favorites.unshift(targetId);
+  currentUser.addFavorite(targetId);
+})
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 

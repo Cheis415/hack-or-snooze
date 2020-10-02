@@ -123,6 +123,13 @@ class User {
     this.loginToken = token;
   }
 
+  //TODO 1: get favorites bolden when page starts
+  //TODO 2: remove items from database favorites on another click
+
+  async addFavorite(id) {
+    let result = await axios.post(`${BASE_URL}/users/${this.username}/favorites/${id}`, { token: this.loginToken })
+    this.favorites = result.data.user.favorites.map(s => new Story(s));
+  }
   /** Register new user in API, make User instance & return it.
    *
    * - username: a new username
