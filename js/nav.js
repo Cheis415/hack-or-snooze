@@ -2,7 +2,7 @@
  * Handling navbar clicks and updating navbar
  */
 function navStoryClick() {
-  $storyForm.toggle()
+  $storyForm.toggle();
 }
 /** Show main list of all stories when click site name */
 
@@ -31,7 +31,6 @@ $navLogin.on("click", navLoginClick);
 
 function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
-  $(".main-nav-links").show();
   $storyNav.show();
   $navLogin.hide();
   $navLogOut.show();

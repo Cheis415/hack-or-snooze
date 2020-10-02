@@ -66,7 +66,7 @@ class StoryList {
       url: `${BASE_URL}/stories`,
       method: "GET",
     });
-    
+    console.log(response)
     // turn plain old story objects from API into instances of Story class
     const stories = response.data.stories.map(story => new Story(story));
     
